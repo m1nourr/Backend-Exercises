@@ -1,0 +1,24 @@
+{
+  "name": "cli-crud",
+  "version": "1.0.0",
+  "description": "Exercise: Setup an express server for \"Hello World\"",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "connect": "node --env-file=.env src/connect",
+    "start": "node --env-file=.env app",
+    "clean": "rm -rf node_modules/ package-log.json",
+    "eslint": "npx eslint .",
+    "eslint:fix": "npx eslint . --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^3.12.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.19.0",
+    "eslint-plugin-jsdoc": "^50.6.3"
+  }
+}
+
