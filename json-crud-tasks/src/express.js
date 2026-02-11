@@ -1,7 +1,7 @@
 import express from 'express'
-import logger from 'morgan'
 import { router } from './route/index.js'
-import { errorHandler } from './middleware/errorHandler.js'
+import logger from 'morgan'
+import { errorHandler } from '../middleware/errorHandler.js'
 
 
 export const app = express()
@@ -14,6 +14,8 @@ app.use(logger('dev', {
 
 // Use the public folder for static resources
 app.use(express.static('public'))
+
+app.use(express.json())
 
 // Mount the routes
 app.use('/', router)
