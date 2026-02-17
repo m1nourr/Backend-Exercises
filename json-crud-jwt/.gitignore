@@ -1,0 +1,15 @@
+node_modules/
+.env
+
+# Coverage
+.nyc_output/
+coverage/
+
+# Mac
+.DS_Store
+
+# Editor
+.idea
+.vscode
+*.swp
+*~
