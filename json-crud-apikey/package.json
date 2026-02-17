@@ -1,0 +1,31 @@
+{
+  "name": "json-crud-apikey",
+  "version": "1.0.0",
+  "description": "Exercise: Setup an express server for \"Hello World\"",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env app.js",
+    "dev": "npx nodemon --env-file=.env app.js",
+    "test": "NODE_ENV=test mocha test/**/*.test.js",
+    "clean": "rm -rf node_modules/ package-log.json",
+    "eslint": "npx eslint .",
+    "eslint:fix": "npx eslint . --fix",
+    "jsdoc": "npx jsdoc -c jsdoc.config.json",
+    "coverage": "npx nyc npm test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.17.0"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "eslint": "^9.39.2",
+    "eslint-plugin-jsdoc": "^50.6.3",
+    "nodemon": "^3.1.11"
+  }
+}
