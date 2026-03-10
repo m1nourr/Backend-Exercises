@@ -1,0 +1,39 @@
+{
+  "name": "login-base",
+  "version": "1.0.0",
+  "description": "Exercise: Work with session, crud and login",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env app.js",
+    "dev": "npx nodemon --env-file=.env app.js",
+    "test": "NODE_ENV=test mocha test/**/*.test.js",
+    "clean": "rm -rf node_modules/ package-log.json",
+    "eslint": "npx eslint .",
+    "eslint:fix": "npx eslint . --fix",
+    "jsdoc": "npx jsdoc -c jsdoc.config.json",
+    "coverage": "npx nyc npm test",
+    "prod": "node --env-file=.env app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "ejs": "^3.1.10",
+    "express": "^5.0.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.19.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.12.0"
+  },
+  "devDependencies": {
+    "@eslint/css": "^0.14.1",
+    "@eslint/js": "^10.0.1",
+    "@eslint/json": "^1.0.1",
+    "eslint": "^10.0.0",
+    "globals": "^17.3.0",
+    "nodemon": "^3.1.9"
+  }
+}
