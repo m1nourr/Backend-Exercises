@@ -1,0 +1,10 @@
+<%- include('header') -%>
+
+<h2>Update user '<%= user.username %>'</h2>
+
+<form method="post">
+  <p>User id:<br><input type="text" name="username" value="<%= user.id %>" readonly></p>
+  <p>Username:<br><input type="text" name="username" value="<%= user.username %>" readonly></p>
+  <p>Email:<br><input type="text" name="email" value="<%= user.email %>"></p>
+  <p><input type="submit" name="doit" value="Update"></p>
+</form>

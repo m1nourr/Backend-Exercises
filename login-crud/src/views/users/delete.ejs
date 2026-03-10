@@ -1,0 +1,9 @@
+<%- include('header') -%>
+
+<h2>Delete user '<%= user.username %>'</h2>
+
+<form method="post">
+  <p>User id:<br><input type="text" name="username" value="<%= user.id %>" readonly></p>
+  <p>Username:<br><input type="text" name="username" value="<%= user.username %>" readonly></p>
+  <p><input type="submit" name="doit" value="Delete"></p>
+</form>
