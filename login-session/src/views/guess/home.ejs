@@ -1,0 +1,11 @@
+<%- include('header') %>
+
+<h2>Start / restart the game</h2>
+
+<p>This is a guessing game. Press "START" and the server starts to think of a number between 1 and 100. You have at most 5 guesses to guess the number.</p>
+
+<form method="post" action="./guess/init">
+  <p>
+    <input type="submit" value="START">
+  </p>
+</form>
