@@ -1,0 +1,11 @@
+input {
+  padding: 4px;
+}
+
+input[readonly] {
+  background-color: #f0f0f0;
+  color: #666;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
