@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <base href="<%= baseURL %>" />
+  <title>Website with EJS templates</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <%- include('../partials/header') %>
+  <main>
+    <%- include('../partials/flash') %>
+    <%- body %>
+  </main>
+  <%- include('../partials/footer') %>
+</body>
+</html>
+
