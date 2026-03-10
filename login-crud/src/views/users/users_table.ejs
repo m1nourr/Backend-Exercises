@@ -1,0 +1,37 @@
+<table class="stripe">
+  <thead>
+    <tr>
+      <th>User id</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (users?.length) { %>
+    <% for (const user of users) { %>
+    <tr>
+      <td>
+        <a href="./crud/users/<%= user.id %>"><%= user.id %></a>
+      </td>
+      <td>
+        <%= user.username %>
+      </td>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+        <a href="./crud/users/<%= user.id %>/update">Update</a>
+        <a href="./crud/users/<%= user.id %>/delete">Delete</a>
+      </td>
+    </tr>
+    <% } %>
+    <% } else { %>
+    <tr>
+      <td colspan="3">
+        There are no tasks to display
+      </td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
