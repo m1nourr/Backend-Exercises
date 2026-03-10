@@ -1,0 +1,16 @@
+<%- include('header') %>
+
+<h2>Guess</h2>
+
+<p>Guess on a number between 1 and 100.</p>
+
+<form method="post">
+  <p>
+    <input type="number" name="guessedNumber" value="<%= lastGuess %>">
+  </p>
+  <p>
+    <input type="submit" value="Guess">
+  </p>
+</form>
+
+<p>You have made <%= numGuesses ?? 0 %> guesses.</p>
