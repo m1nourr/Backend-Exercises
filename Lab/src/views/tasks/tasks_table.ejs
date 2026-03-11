@@ -1,0 +1,29 @@
+<table class="stripe">
+  <thead>
+    <tr>
+      <th>Task id</th>
+      <th>Title</th>
+      <th>Completed</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (tasks?.length) { %>
+      <% for (const task of tasks) { %>
+        <tr>
+          <td><a href="./tasks/<%= task.id %>"><%= task.id %></a></td>
+          <td><%= task.title %></td>
+          <td><%= task.completed ? 'Yes' : 'No' %></td>
+          <td>
+            <a href="./tasks/<%= task.id %>/update">Update</a>
+            <a href="./tasks/<%= task.id %>/delete">Delete</a>
+          </td>
+        </tr>
+      <% } %>
+    <% } else { %>
+      <tr>
+        <td colspan="4">There are no tasks to display.</td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>

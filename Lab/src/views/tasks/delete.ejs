@@ -1,0 +1,22 @@
+<h1>Delete Task</h1>
+
+<p>Are you sure you want to delete this task?</p>
+
+<form method="post">
+  <p>
+    Task id:<br>
+    <input type="text" value="<%= task.id %>" readonly>
+  </p>
+
+  <p>
+    Title:<br>
+    <input type="text" value="<%= task.title %>" readonly>
+  </p>
+
+  <p>
+    Completed:<br>
+    <input type="text" value="<%= task.completed ? 'Yes' : 'No' %>" readonly>
+  </p>
+
+  <p><input type="submit" value="Delete"></p>
+</form>
