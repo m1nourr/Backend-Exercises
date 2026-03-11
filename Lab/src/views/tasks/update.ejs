@@ -1,0 +1,22 @@
+<h1>Update Task</h1>
+
+<form method="post">
+  <p>
+    Task id:<br>
+    <input type="text" value="<%= task.id %>" readonly>
+  </p>
+
+  <p>
+    Title:<br>
+    <input type="text" name="title" value="<%= task.title %>">
+  </p>
+
+  <p>
+    <label>
+      <input type="checkbox" name="completed" <%= task.completed ? 'checked' : '' %>>
+      Completed
+    </label>
+  </p>
+
+  <p><input type="submit" value="Update"></p>
+</form>

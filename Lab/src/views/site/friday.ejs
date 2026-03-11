@@ -1,0 +1,31 @@
+<h1>Friday Page</h1>
+
+<p>Selected date: <strong><%= dateString %></strong></p>
+<p>Day of the week: <strong><%= weekday %></strong></p>
+
+<form method="get" action="./friday">
+  <p>
+    Try another date:
+    <br>
+    <input type="date" name="date" value="<%= usedQueryDate ? dateString : '' %>">
+    <input type="submit" value="Check date">
+  </p>
+</form>
+
+<% if (isFriday) { %>
+  <section class="bgcolor">
+    <h2>IT IS FRIDAY </h2>
+    <p>Friday mode activated. Time to make it crazy.</p>
+    <ul>
+      <li>Disco tasks</li>
+      <li>Friday coffee boost</li>
+      <li>Weekend countdown</li>
+      <li>Extra happy coding energy</li>
+    </ul>
+  </section>
+<% } else { %>
+  <section>
+    <h2>Not Friday yet</h2>
+    <p>Stay strong. Friday will come.</p>
+  </section>
+<% } %>

@@ -1,0 +1,24 @@
+<h1>View Task</h1>
+
+<p>Here are the task details.</p>
+
+<table class="bgcolor">
+  <tr>
+    <th>Task id</th>
+    <td><%= task.id %></td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <td><%= task.title %></td>
+  </tr>
+  <tr>
+    <th>Completed</th>
+    <td><%= task.completed ? 'Yes' : 'No' %></td>
+  </tr>
+</table>
+
+<nav>
+  <a href="./tasks/<%= task.id %>/update">Update</a> |
+  <a href="./tasks/<%= task.id %>/delete">Delete</a> |
+  <a href="./tasks">Back to all tasks</a>
+</nav>

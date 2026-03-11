@@ -1,4 +1,5 @@
 import mysql from 'mysql2/promise'
+import mysql2 from 'mysql2'
 import { config } from '../config/database.js'
 
 /**
@@ -24,28 +25,54 @@ class DatabaseService {
       process.exit(1)
     }
 
-    process.on('SIGINT', () => this.closeConnection())
-    process.on('SIGTERM', () => this.closeConnection())
+    process.on('SIGINT', async () => {
+      await this.closeConnection()
+    })
+
+    process.on('SIGTERM', async () => {
+      await this.closeConnection()
+    })
+  }
+
+  /**
+   * Format a SQL query safely.
+   *
+   * @param {string} queryString SQL query.
+   * @param {Array} params Query parameters.
+   * @returns {string} Formatted SQL string.
+   */
+  format (queryString, params = []) {
+    return mysql2.format(queryString, params)
+  }
+
+  /**
+   * Ensure there is an active database connection.
+   *
+   * @async
+   * @returns {Promise<void>}
+   */
+  async ensureConnection () {
+    if (!this.#connection) {
+      await this.connect()
+      return
+    }
+
+    if (this.#connection.connection?._closing) {
+      this.#connection = await mysql.createConnection(config)
+      console.log('Database reconnected.')
+    }
   }
 
   /**
    * Execute a database query.
    *
    * @async
-   * @param {string} queryString - The SQL query string.
-   * @param {Array} [params=[]] - The parameters for the query.
-   * @returns {Promise<object>} The result of the query.
-   * @throws {Error} If the query execution fails.
+   * @param {string} queryString SQL query string.
+   * @param {Array} [params=[]] Query parameters.
+   * @returns {Promise<object>} Query result.
    */
   async query (queryString, params = []) {
-    if (!this.#connection) {
-      throw new Error('Database connection is not initialized. Did connect() fail?')
-    }
-
-    /*Extra guard for closed connections*/
-    if (this.#connection.connection?._closing) {
-      throw new Error('Database connection is closing/closed.')
-    }
+    await this.ensureConnection()
 
     try {
       const [rows] = await this.#connection.execute(queryString, params)
@@ -56,13 +83,17 @@ class DatabaseService {
   }
 
   /**
-   * Close the database connection pool.
+   * Close the database connection.
    *
    * @async
+   * @returns {Promise<void>}
    */
   async closeConnection () {
+    if (!this.#connection) return
+
     try {
       await this.#connection.end()
+      this.#connection = null
       console.log('Database connection closed.')
     } catch (err) {
       console.error('Error closing the database connection:', err.message)
